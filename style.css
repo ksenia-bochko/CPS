@@ -19,7 +19,7 @@
     font-weight: 400;
 }
 
-/* ОСНОВНЫЕ СТИЛИ */
+/* ОСНОВНЫЕ И ОБЩИЕ СТИЛИ */
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -36,7 +36,23 @@ body {
 .container {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 24px 16px;
+    padding: 24px 20px;
+}
+
+button, a {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    background: none;
+    
+    font: inherit;
+    color: inherit;
+
+    cursor: pointer;
+
+    text-decoration: none;
 }
 
 /* HEADER */
@@ -81,11 +97,6 @@ body {
     padding-left: 0;
 }
 
-.menu__actions a {
-    display: inline-block;
-    text-decoration: none;
-}
-
 .menu__actions a:first-child {
     padding-right: 16px;
 }
@@ -125,13 +136,17 @@ body {
     position: absolute;
     height: 40px;
     width: 4px;
-    left: -16px;
+    left: -20px;
     background-color: #41F6D7;
     border-radius: 3px;
 }
 
 .services__icons {
     display: none;
+}
+
+.services__icons a:hover {
+    filter: brightness(0.85);
 }
 
 .tabs {
@@ -144,19 +159,20 @@ body {
     letter-spacing: -0.2px;
 
     overflow-x: auto;
-    margin-bottom: 8px;
 }
 
 .tabs__link {
     padding: 8px 9px 8px 16px;
-    text-decoration: none;
-    color: inherit;
+
+    transition: color 0.3s;
+}
+
+.tabs__link:hover {
+    color: #1B1C21;
 }
 
 .tabs__link--active {
-    flex: 0 0 246px;
-    flex-grow: 1;
-
+    padding-right: 15px;
     background-color: #fff;
 
     border: 2px solid #B8FFEC;
@@ -168,29 +184,42 @@ body {
 }
 
 .services__text {
-    letter-spacing: 0.2px;
-    padding-bottom: 16px;
+    line-height: 20px;
+}
 
-    max-height: 110px;
-    overflow: hidden;
+.services__second {
+    display: none;
+}
+
+.services__desktop {
+    display: none;
 }
 
 .read_more {
     letter-spacing: -0.2px;
     font-size: 16px;
     font-weight: 500;
-    padding-top: 15px;
 }
 
 .read_more__icon {
     padding-right: 16px;
-    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.services__company {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: 16px;
 }
 
 .services__company img {
-    margin-top: 10px;
     width: 100%;
+    display: block;
 }
+
 
 /* АДАПТИВ */
 
@@ -223,27 +252,22 @@ body {
         left: -24px;
     }
 
-    .tabs {
-        margin-bottom: 32px;
-    }
-
-    .tabs__link--active {
-        flex-grow: 0;
-    }
-
     .services__info {
         display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 48px;
+        grid-template-columns: 0.83fr 1.1fr;
+        gap: 34px;
     }
 
-    .services__text {
-        max-height: 140px;
+    .services__second {
+        display: block;
+    }
+
+    .services__company {
+        margin: 0;
     }
 
     .services__company img {
         border-radius: 6px;
-        max-height: 360px;
     }
 }
 
@@ -287,16 +311,15 @@ body {
         align-items: center; 
         gap: 8px;
 
-        color: inherit;
-        text-decoration: none;
         font-size: 16px;
         font-weight: 500;
+
+        transition: color 0.3s;
     }
     
-
     .tabs {
         overflow-x: hidden;
-        white-space: wrap;
+        white-space: normal;
         display: grid;
         grid-template-columns: repeat(5, auto);
     }
@@ -315,15 +338,16 @@ body {
     }
 
     .services__info {
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 0.9fr 1fr;
+        gap: 40px;
     }
 
-    .services__text {
-        overflow: visible;
-        max-height: 500px;
+    .services__desktop {
+        display: inline;
     }
 
-    .services__company img {
-        max-height: 500px;
+    .read_more {
+        margin-top: 13px;
     }
 }
