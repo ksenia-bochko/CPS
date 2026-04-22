@@ -87,8 +87,8 @@ h1 {
 
     padding: 0 16px;
 
-    min-width: 240px; 
-    min-height: 72px;
+    width: 240px !important; 
+    height: 72px !important;
 }
 
 .item__btn:active {
@@ -112,12 +112,13 @@ h1 {
 }
 
 .swiper-pagination-bullet {
-    background: #DDDDDD;
-    opacity: 1;
+    background-color: #DDD !important;
+    opacity: 1 !important;
 }
 
 .swiper-pagination-bullet-active {
-    background: #B5B6BC;
+    background-color: #B5B6BC !important;
+    opacity: 1 !important; 
 }
 
 /* АДАПТИВ ПОД 784px */
@@ -146,6 +147,10 @@ h1 {
 
     .firms__item {
         min-width: 220px; 
+    }
+
+    .swiper-pagination {
+        display: none;
     }
 
     .more__btn {
