@@ -1,126 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPS</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-        
-            <div class="menu">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CPS</title>
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container">
+				<div class="header__menu">
+					<div class="header__menu--left">
+						<button>
+							<img src="img/menu.svg" alt="menu" height="40" />
+						</button>
+						<span class="header__menu__separator header__menu__separator--left"></span>
+						<button>
+							<img src="img/logo.svg" alt="logo" height="50" width="96" />
+						</button>
+					</div>
 
-                <div class="menu__left">
-                    <img src="img/menu.svg" alt="menu" height="40">
+					<span class="header__menu__separator header__menu__separator--right"></span>
 
-                    <div class="menu__separator menu__separator--left"></div>
+					<nav class="header__menu__nav">
+						<div class="header__menu--more">
+							<button>
+								<img src="img/call.svg" alt="call" />
+							</button>
+							<button>
+								<img src="img/chat.svg" alt="chat" />
+							</button>
+							<button>
+								<img src="img/profile.svg" alt="profile" />
+							</button>
+						</div>
 
-                    <img src="img/logo.svg" alt="logo" height="50" width="96">
-                </div>
+						<span class="header__menu__separator header__menu__separator--center"></span>
 
+						<div class="header__menu__actions">
+							<button>
+								<img src="img/repair.svg" alt="repair" />
+							</button>
+							<button>
+								<img src="img/checkstatus.svg" alt="search" />
+							</button>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
 
-                <div class="menu__separator menu__separator--right"></div>
-                
+		<main class="services">
+			<div class="container">
+				<div class="services__header">
+					<div class="services__title">Услуги и сервисы</div>
 
-                <nav class="menu__nav">
+					<nav class="services__icons">
+						<button class="btnn">
+							<span>Оставить заявку</span>
+							<img src="img/repair.svg" alt="repair" />
+						</button>
+						<button class="btnn">
+							Статус ремонта
+							<img src="img/checkstatus.svg" alt="search" />
+						</button>
+					</nav>
+					<!--services__icons-->
+				</div>
+				<!--services__header-->
 
-                    <div class="menu__more">
-                        <a href="#"><img src="img/call.svg" alt="call"></a>
-                        <a href="#"><img src="img/chat.svg" alt="chat"></a>
-                        <a href="#"><img src="img/profile.svg" alt="profile"></a>
-                    </div>
+				<nav>
+					<ul class="tabs">
+						<li class="tabs__link tabs__link--desktop">
+							<a href="#">Ремонтируемые бренды</a>
+						</li>
+						<li class="tabs__link tabs__link--active">
+							<a href="#">Ремонтируемые устройства</a>
+						</li>
+						<li class="tabs__link tabs__link--mobile">
+							<a href="#">Дополнительные услуги</a>
+						</li>
+						<li class="tabs__link"><a href="#">Цены на услуги</a></li>
+						<li class="tabs__link tabs__link--desktop">
+							<a href="#">Адреса сервисных центров</a>
+						</li>
+						<li class="tabs__link"><a href="#">Специальные цены</a></li>
+						<li class="tabs__link tabs__link--desktop">
+							<a href="#">Отзывы</a>
+						</li>
+					</ul>
+				</nav>
 
-                    <div class="menu__separator menu__separator--center"></div>
+				<div class="services__info">
+					<div class="services__content">
+						<p class="services__text">
+							Мы являемся авторизованным сервисным центром по ремонту техники
+							Dell. Только у нас вы можете отремонтировать свой ноутбук Dell с
+							официальной гарантией производителя. Мы успешно работаем с 1992
+							года и заслужили репутацию надежного партнера, что подтверждает
+							большое количество постоянных клиентов. Мы гордимся тем, что к нам
+							обращаются по рекомендациям и, в свою очередь, советуют нас родным
+							и близким.
+						</p>
 
-                    <div class="menu__actions">
+						<div class="read_more">
+							<button class="read_more__icon">
+								<img src="img/read_more_icon.svg" alt="" />
+								<span>Читать далее</span>
+							</button>
+						</div>
+					</div>
+					<!--services__text-->
 
-                        <a href="#">
-                            <img src="img/repair.svg" alt="repair">
-                        </a>
-
-                        <a href="#">
-                            <img src="img/checkstatus.svg" alt="search">
-                        </a>
-                    </div>
-                    
-                </nav>
-
-            </div>
-
-        </div>
-
-    </header>
-
-<main class="services">
-
-    <div class="container">
-
-        <div class="services__header">
-
-            <div class="services__title">
-                Услуги и сервисы
-            </div>
-
-            <div class="services__icons">
-                <a href="#">
-                    Оставить заявку
-                    <img src="img/repair.svg" alt="repair">
-                </a>
-
-                <a href="#">
-                    Статус ремонта
-                    <img src="img/checkstatus.svg" alt="search">
-                </a>
-            </div>
-            
-        </div>
-
-
-            <nav class="tabs">
-                <a href="#" class="tabs__link tabs__link--desktop tabs__link--active">Ремонтируемые бренды</a>
-                <a href="#" class="tabs__link tabs__link--active">Ремонтируемые устройства</a>
-                <a href="#" class="tabs__link tabs__link--mobile">Дополнительные услуги</a>
-                <a href="#" class="tabs__link">Цены на услуги</a>
-                <a href="#" class="tabs__link tabs__link--desktop">Адреса сервисных центров</a>
-                <a href="#" class="tabs__link">Специальные цены</a>
-                <a href="#" class="tabs__link tabs__link--desktop">Отзывы</a>
-            </nav>
-
-
-        <div class="services__info">
-            <div class="services__text">
-
-    <p>
-        Мы являемся авторизованным сервисным центром по ремонту техники Dell.
-        Только у нас вы можете отремонтировать свой ноутбук Dell с официальной
-        гарантией производителя.
-    </p>
-
-    <p class="services__second">
-        Мы успешно работаем с 1992 года и заслужили репутацию надежного партнера
-        <span class="services__desktop">
-            , что подтверждает большое количество постоянных клиентов.
-            Мы гордимся тем, что к нам обращаются по рекомендациям и, в свою очередь,
-            советуют нас родным и близким.
-        </span>
-    </p>
-
-    <div class="read_more">
-        <button class="read_more__icon">
-            <img src="img/read_more_icon.svg" alt="">
-            Читать далее
-        </button>
-    </div>
-
-</div>
-        
-
-        <div class="services__company">
-            <img src="img/info.svg" alt="info">
-        </div>
-    </div>
-</main>
-</body>
+					<img src="img/info.svg" alt="info" class="services__img" />
+				</div>
+				<!--services__info-->
+			</div>
+		</main>
+	</body>
 </html>
