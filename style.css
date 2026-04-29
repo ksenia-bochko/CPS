@@ -218,6 +218,7 @@ ul {
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 32px;
+	margin-top: 10px;
 }
 
 .services__img {
@@ -280,6 +281,7 @@ ul {
 	.services__text {
 		max-height: 98px;
 		overflow-y: hidden;
+		
 		margin: 0;
 	}
 }
