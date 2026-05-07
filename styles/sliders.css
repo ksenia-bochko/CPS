@@ -1,0 +1,295 @@
+.title {
+	font-size: 16px;
+	font-weight: 400;
+	color: #7e7e82;
+	text-transform: uppercase;
+	background-color: #fff;
+	margin-bottom: 32px;
+	padding: 16px;
+	border-top: 1px solid #d9fff5;
+}
+
+.item__btn:active {
+	filter: opacity(0.8);
+}
+
+.item__btn:hover {
+	filter: contrast(200%);
+	transform: scale(1.1);
+}
+
+.more__btn {
+	display: none;
+}
+
+/* FIRMS */
+
+.firms__item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 240px;
+	height: 72px;
+
+	flex-shrink: 0;
+
+	padding: 0 16px;
+
+	background-color: #fff;
+	border: 1px solid #eaeaea;
+	border-radius: 6px;
+}
+
+/* TECHNICS */
+
+.technics__item {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	width: 240px;
+	height: 160px;
+
+	flex-shrink: 0;
+
+	padding: 16px;
+
+	background-color: #fff;
+	border: 1px solid #eaeaea;
+	border-radius: 6px;
+
+	font-weight: 500;
+}
+
+.technics__item .item__btn {
+	align-self: flex-end;
+}
+
+/* PAGINATION */
+
+.swiper-pagination__firms,
+.swiper-pagination__tech,
+.swiper-pagination__prices {
+	display: flex;
+	justify-content: center;
+	margin-top: 16px;
+}
+
+.swiper-pagination__firms .swiper-pagination-bullet,
+.swiper-pagination__tech .swiper-pagination-bullet,
+.swiper-pagination__prices .swiper-pagination-bullet {
+	width: 12px;
+	height: 12px;
+
+	margin: 0 4px;
+
+	background-color: #ddd;
+	opacity: 1;
+}
+
+.swiper-pagination__firms .swiper-pagination-bullet-active,
+.swiper-pagination__tech .swiper-pagination-bullet-active,
+.swiper-pagination__prices .swiper-pagination-bullet-active {
+	background-color: #b5b6bc;
+}
+
+/* JS CLASSES */
+
+.rotate {
+	transform: rotate(180deg);
+}
+
+/* Адаптив 768px */
+
+@media (min-width: 768px) {
+	.firms,
+	.technics {
+		max-height: 170px;
+		overflow: hidden;
+	}
+
+	.firms--open,
+	.technics--open {
+		max-height: none;
+	}
+
+	.firms .swiper-wrapper,
+	.technics .swiper-wrapper {
+		display: grid;
+		grid-template-columns: repeat(3, 240px);
+		gap: 16px;
+
+		overflow: visible;
+	}
+
+	.swiper-pagination__firms,
+	.swiper-pagination__tech,
+	.swiper-pagination__prices {
+		display: none;
+	}
+
+	.more__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+
+		margin-top: 24px;
+
+		font-weight: 500;
+	}
+
+	.firms__item {
+		min-width: 220px;
+	}
+}
+
+/* Адаптив 1024px */
+
+@media (min-width: 1024px) {
+	.firms .swiper-wrapper,
+	.technics .swiper-wrapper {
+		grid-template-columns: repeat(4, 235px);
+	}
+}
+
+/* Адаптив 1220px */
+
+@media (min-width: 1120px) {
+	.firms .swiper-wrapper,
+	.technics .swiper-wrapper {
+		grid-template-columns: repeat(3, 235px);
+	}
+}
+
+/* Адаптив 1440px */
+
+@media (min-width: 1440px) {
+	.firms .swiper-wrapper,
+	.technics .swiper-wrapper {
+		grid-template-columns: repeat(4, 240px);
+	}
+}
+
+/* PRICE */
+
+.prices__head {
+	display: none;
+}
+
+.prices__card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 260px;
+	height: 230px;
+	padding: 16px;
+
+	background-color: #fff;
+	border-radius: 6px;
+	font-size: 14px;
+	line-height: 18px;
+	letter-spacing: 0.2px;
+	font-weight: 400;
+}
+
+.prices-card__label {
+	margin-bottom: 4px;
+
+	color: #7e7e82;
+	line-height: 16px;
+	letter-spacing: 0;
+	font-weight: 500;
+}
+
+.prices-card__bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.price__btn {
+	line-height: 0;
+}
+
+.price__offer {
+	width: 250px;
+	margin-top: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: flex-start;
+}
+
+.price__offer-btn {
+	font-size: 16px;
+
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: -0.2px;
+	text-align: left;
+}
+
+.price__offer-btn::after {
+	position: relative;
+	content: "›";
+	left: 10px;
+	font-weight: 600;
+	color: #ff3e79;
+}
+
+/* Адаптив на 768px */
+
+@media (min-width: 768px) {
+	.swiper-pagination__prices {
+		display: none;
+	}
+
+	.prices.swiper-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.prices__head {
+		display: grid;
+		grid-template-columns: 1fr 120px 140px 120px;
+
+		padding: 0 24px 16px;
+
+		color: #7e7e82;
+		font-size: 14px;
+	}
+
+	.prices__card.swiper-slide {
+		display: grid;
+		grid-template-columns: 1fr 120px 140px 120px;
+		align-items: center;
+
+		width: 100% !important;
+		height: auto;
+		min-height: auto;
+
+		padding: 16px 24px;
+
+		background-color: #fff;
+		border-radius: 0;
+		border-bottom: 1px solid #eaeaea;
+	}
+
+	.prices-card__group {
+		margin-bottom: 0;
+		display: contents;
+	}
+
+	.prices-card__label {
+		display: none;
+	}
+
+	.prices-card__bottom {
+		display: contents;
+	}
+
+	.price__offer {
+	width: 460px;
+}
+}

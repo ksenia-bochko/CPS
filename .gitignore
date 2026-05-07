@@ -14,7 +14,6 @@ Thumbs.db
 *.swo
 *~
 
-# Project files (если есть)
 node_modules/
 dist/
 build/
