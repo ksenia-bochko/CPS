@@ -38,6 +38,10 @@ body {
 	line-height: 24px;
 }
 
+body.no-scroll {
+	overflow: hidden;
+}
+
 .container {
 	max-width: 1120px;
 	margin: 0 auto;
@@ -80,7 +84,7 @@ p {
 	gap: 24px;
 	top: 0;
 	left: 0;
-	background: white;
+	background-color: #fff;
 	box-shadow: 16px 0 52px 0 rgba(14, 24, 80, 0.2);
 	transform: translateX(-100%);
 	transition: transform 0.3s ease;
