@@ -4,27 +4,64 @@
 
 const servicesItems = document.querySelectorAll(".services__item");
 
-servicesItems.forEach((item) => {
-	item.addEventListener("click", function () {
-		servicesItems.forEach((serviceItem) => {
-			serviceItem.classList.remove("services__item--active");
-		});
-
-		this.classList.add("services__item--active");
-	});
-});
-
 // ====================
 // SIDE MENU
 // ====================
 
 const sideMenu = document.querySelector(".side-menu");
-
 const burgerButton = document.querySelector(".menu__button--burger");
-
 const closeMenuButton = document.querySelector(".side-menu__button--close");
-
 const menuOverlay = document.querySelector(".menu-overlay");
+const navItems = document.querySelectorAll(".side-menu__item");
+
+// ====================
+// LANGUAGE BUTTONS
+// ====================
+
+const languageButtons = document.querySelectorAll(".language__button");
+
+// ====================
+// MODALS
+// ====================
+
+const modalOverlay = document.querySelector(".modal-overlay");
+const callModal = document.querySelector(".modal-call");
+const feedbackModal = document.querySelector(".modal-feedback");
+const callButtons = document.querySelectorAll(".contact__btn--call");
+const feedbackButtons = document.querySelectorAll(".contact__btn--feedback");
+const modalCloseButtons = document.querySelectorAll(".modal__close");
+
+// ====================
+// HELPERS
+// ====================
+
+function setActive(items, activeClass, currentItem) {
+	items.forEach((item) => {
+		item.classList.remove(activeClass);
+	});
+
+	currentItem.classList.add(activeClass);
+}
+
+function setupActiveItems(items, activeClass) {
+	items.forEach((item) => {
+		item.addEventListener("click", () => {
+			setActive(items, activeClass, item);
+		});
+	});
+}
+
+function setupModalButtons(buttons, modal) {
+	buttons.forEach((button) => {
+		button.addEventListener("click", () => {
+			openModal(modal);
+		});
+	});
+}
+
+// ====================
+// MENU FUNCTIONS
+// ====================
 
 // Открытие меню
 function openMenu() {
@@ -40,7 +77,6 @@ function closeMenu() {
 
 	document.body.classList.remove("menu-open");
 
-	// Проверяем есть ли открытая модалка
 	const hasOpenModal = document.querySelector(".modal--open");
 
 	if (!hasOpenModal) {
@@ -48,94 +84,18 @@ function closeMenu() {
 	}
 }
 
-// Клик по бургеру
-burgerButton.addEventListener("click", function () {
-	const isMenuOpen = sideMenu.classList.contains("side-menu--open");
-
-	if (isMenuOpen) {
+// Переключение меню
+function toggleMenu() {
+	if (sideMenu.classList.contains("side-menu--open")) {
 		closeMenu();
 	} else {
 		openMenu();
 	}
-});
-
-// Кнопка закрытия меню
-closeMenuButton.addEventListener("click", closeMenu);
-
-// Overlay меню
-menuOverlay.addEventListener("click", closeMenu);
-
-// ====================
-// SIDE MENU ACTIVE ITEMS
-// ====================
-
-const navItems = document.querySelectorAll(".side-menu__item");
-
-// Удаление active
-function removeNavActiveClass() {
-	navItems.forEach((item) => {
-		item.classList.remove("side-menu__item--active");
-	});
 }
 
-// Добавление active
-function addNavActiveClass(item) {
-	item.classList.add("side-menu__item--active");
-}
-
-// Клик по пунктам меню
-navItems.forEach((item) => {
-	const button = item.querySelector("button");
-
-	button.addEventListener("click", function () {
-		removeNavActiveClass();
-
-		addNavActiveClass(item);
-	});
-});
-
 // ====================
-// LANGUAGE BUTTONS
+// MODAL FUNCTIONS
 // ====================
-
-const languageButtons = document.querySelectorAll(".language__button");
-
-// Удаление active языка
-function removeLanguageActiveClass() {
-	languageButtons.forEach((button) => {
-		button.classList.remove("language__button--active");
-	});
-}
-
-// Добавление active языка
-function addLanguageActiveClass(button) {
-	button.classList.add("language__button--active");
-}
-
-// Клик по языкам
-languageButtons.forEach((button) => {
-	button.addEventListener("click", function () {
-		removeLanguageActiveClass();
-
-		addLanguageActiveClass(button);
-	});
-});
-
-// ====================
-// MODALS
-// ====================
-
-const modalOverlay = document.querySelector(".modal-overlay");
-
-const callModal = document.querySelector(".modal-call");
-
-const feedbackModal = document.querySelector(".modal-feedback");
-
-const callButtons = document.querySelectorAll(".contact__btn--call");
-
-const feedbackButtons = document.querySelectorAll(".contact__btn--feedback");
-
-const modalCloseButtons = document.querySelectorAll(".modal__close");
 
 // Открытие модалки
 function openModal(modal) {
@@ -150,40 +110,53 @@ function openModal(modal) {
 function closeModal(modal) {
 	modal.classList.remove("modal--open");
 
-	// Проверяем есть ли открытые модалки
 	const hasOpenModal = document.querySelector(".modal--open");
-
-	// Проверяем открыто ли меню
 	const isMenuOpen = sideMenu.classList.contains("side-menu--open");
 
-	// Если модалок нет — скрываем overlay
 	if (!hasOpenModal) {
 		modalOverlay.classList.remove("modal-overlay--open");
 	}
 
-	// Если ничего не открыто — возвращаем скролл
 	if (!hasOpenModal && !isMenuOpen) {
 		document.body.classList.remove("no-scroll");
 	}
 }
 
-// Открытие модалки звонка
-callButtons.forEach((button) => {
-	button.addEventListener("click", function () {
-		openModal(callModal);
-	});
-});
+// ====================
+// INIT ACTIVE ITEMS
+// ====================
 
-// Открытие модалки обратной связи
-feedbackButtons.forEach((button) => {
-	button.addEventListener("click", function () {
-		openModal(feedbackModal);
-	});
-});
+setupActiveItems(servicesItems, "services__item--active");
+setupActiveItems(navItems, "side-menu__item--active");
+setupActiveItems(languageButtons, "language__button--active");
+
+// ====================
+// INIT MODALS
+// ====================
+
+setupModalButtons(callButtons, callModal);
+setupModalButtons(feedbackButtons, feedbackModal);
+
+// ====================
+// MENU EVENTS
+// ====================
+
+// Клик по бургеру
+burgerButton.addEventListener("click", toggleMenu);
+
+// Кнопка закрытия меню
+closeMenuButton.addEventListener("click", closeMenu);
+
+// Overlay меню
+menuOverlay.addEventListener("click", closeMenu);
+
+// ====================
+// MODAL EVENTS
+// ====================
 
 // Закрытие по кнопке
 modalCloseButtons.forEach((button) => {
-	button.addEventListener("click", function () {
+	button.addEventListener("click", () => {
 		const modal = button.closest(".modal");
 
 		closeModal(modal);
@@ -191,7 +164,7 @@ modalCloseButtons.forEach((button) => {
 });
 
 // Закрытие по overlay
-modalOverlay.addEventListener("click", function () {
+modalOverlay.addEventListener("click", () => {
 	const openedModal = document.querySelector(".modal--open");
 
 	if (openedModal) {
@@ -203,7 +176,7 @@ modalOverlay.addEventListener("click", function () {
 // ESC CLOSE
 // ====================
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", (event) => {
 	if (event.key === "Escape") {
 		const openedModal = document.querySelector(".modal--open");
 
