@@ -1,3 +1,8 @@
+import "./sliders.js";
+
+import "../styles/style.css";
+import "../styles/sliders.css";
+
 // ====================
 // SERVICES NAVIGATION
 // ====================
