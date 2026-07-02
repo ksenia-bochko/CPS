@@ -158,7 +158,7 @@
 @media (min-width: 1120px) {
 	.firms .swiper-wrapper,
 	.technics .swiper-wrapper {
-		grid-template-columns: repeat(3, 235px);
+		grid-template-columns: repeat(4, 235px);
 	}
 }
 

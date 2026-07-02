@@ -69,8 +69,8 @@ function initFirmsSwiper() {
 	// Мобильная версия
 	if (window.innerWidth < 768 && !firmsSwiper) {
 		firmsSwiper = new Swiper(".firms-swiper", {
-			slidesPerView: "auto",
-			spaceBetween: 16,
+			slidesPerView: 1.3,
+			spaceBetween: 24,
 			loop: true,
 
 			pagination: {
@@ -95,8 +95,8 @@ function initTechnicsSwiper() {
 	// Мобильная версия
 	if (window.innerWidth < 768 && !technicsSwiper) {
 		technicsSwiper = new Swiper(".technics-swiper", {
-			slidesPerView: "auto",
-			spaceBetween: 16,
+			slidesPerView: 1.5,
+			spaceBetween: 24,
 			loop: true,
 
 			pagination: {

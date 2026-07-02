@@ -69,7 +69,7 @@ const plugins = () => {
 };
 
 module.exports = {
-	mode: "development",
+	mode: isDev ? "development" : "production",
 	context: path.resolve(__dirname, "src"),
 	entry: "./js/main.js",
 	output: {

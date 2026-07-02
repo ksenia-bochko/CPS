@@ -208,6 +208,7 @@ p {
 }
 
 .app-wrapper {
+	width: 100%;
 	display: flex;
 }
 
@@ -235,7 +236,7 @@ p {
 	}
 
 	.contact {
-		margin-top: auto;
+		margin-top: 268px;
 	}
 
 	.side-menu__list {
@@ -247,23 +248,24 @@ p {
 
 @media (min-width: 1120px) {
 	.side-menu {
-		position: fixed;
-		top: 0;
-		left: 0;
-
-		width: 320px;
-		height: 100vh;
+		position: sticky;
+		min-height: 100vh;
 
 		transform: none;
 		box-shadow: none;
 	}
 
-	.content-wrapper {
-		margin-left: 320px;
-	}
-
 	.menu-overlay {
 		display: none;
+	}
+
+	.side-menu__button--close {
+		display: none;
+	}
+
+	.app-wrapper {
+		width: 1440px;
+		margin: 0 auto;
 	}
 }
 
@@ -420,8 +422,8 @@ p {
 
 .services__img {
 	display: block;
-	width: calc(100% + 32px);
-	margin-left: -16px;
+	max-width: 100%;
+	height: auto;
 }
 
 /* АДАПТИВ 768px */
@@ -436,6 +438,7 @@ p {
 		max-width: 530px;
 		margin-left: 0;
 		flex-shrink: 0;
+		border-radius: 10px;
 	}
 
 	.services__info {
